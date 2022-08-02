@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node server"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,6 +16,8 @@
     "memoize": "^0.1.1",
     "mnist-data": "^1.2.6",
     "morgan": "^1.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "shuffle-seed": "^1.1.6"
   }
 }
