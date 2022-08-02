@@ -6,7 +6,7 @@ const LinearRegression = require('./linear-regression');
 let { features, labels, testFeatures, testLabels } = loadCSV('./life-expectancy.csv', {
     shuffle: true,
     splitTest: 300,
-    dataColumns: ['adultMortality', 'infantDeaths', 'alcohol', 'hepatitisB', 'measles', 'BMI', 'underFiveDeaths', 'polio', 'diphtheria', 'HIV', 'GDP', 'population'],
+    dataColumns: ['adultMortality', 'underFiveDeaths', 'infantDeaths', 'HIV', 'measles', 'BMI', 'alcohol', 'hepatitisB', 'polio', 'diphtheria', 'alcohol', 'GDP', 'population'],
     labelColumns: ['lifeExpectancy']
 });
 
