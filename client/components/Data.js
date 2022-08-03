@@ -39,19 +39,19 @@ export class Data extends React.Component {
           <div className="form-row">
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="adultMortality">Adult Mortality</label>
-              <input type="number" className="form-control" id="adultMortality" placeholder="Per 1000" />
+              <input type="number" className="form-control" id="adultMortality" placeholder="e.g., 263" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
-              <label htmlFor="infantMortality">Under Age 5 Mortality</label>
-              <input type="number" className="form-control" id="infantMortality" placeholder="Per 1000" />
+              <label htmlFor="underFiveMortality">Under Age 5 Mortality</label>
+              <input type="number" className="form-control" id="underFiveMortality" placeholder="e.g., 83" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="infantMortality">Infant Mortality</label>
-              <input type="number" className="form-control" id="infantMortality" placeholder="Per 1000" />
+              <input type="number" className="form-control" id="infantMortality" placeholder="e.g., 62" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="hiv">HIV Cases</label>
-              <input type="number" className="form-control" id="hiv" placeholder="Email" />
+              <input type="number" className="form-control" id="hiv" placeholder="e.g., 0.1" />
             </div>
           </div>
           <div className="form-row">
@@ -59,37 +59,37 @@ export class Data extends React.Component {
           <div className="form-row">
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="measles">Measles Cases</label>
-              <input type="number" className="form-control" id="measles" placeholder="Password" />
+              <input type="number" className="form-control" id="measles" placeholder="e.g., 1154" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="hep">Hepatitis B Immunizations</label>
-              <input type="number" className="form-control" id="hep" placeholder="%" />
+              <input type="number" className="form-control" id="hep" placeholder="e.g., 99" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="polio">Polio Immunizations</label>
-              <input type="number" className="form-control" id="polio" placeholder="%" />
+              <input type="number" className="form-control" id="polio" placeholder="e.g., 99" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="diphtheria">Diphtheria Immunizations</label>
-              <input type="number" className="form-control" id="diphtheria" placeholder="%" />
+              <input type="number" className="form-control" id="diphtheria" placeholder="e.g., 99" />
             </div>
           </div>
           <div className="form-row">
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="bmi">BMI</label>
-              <input type="number" className="form-control" id="bmi" placeholder="Average" />
+              <input type="number" className="form-control" id="bmi" placeholder="e.g., 19.1" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="alcohol">Alcohol</label>
-              <input type="number" className="form-control" id="alcohol" placeholder="Liters Per Capita" />
+              <input type="number" className="form-control" id="alcohol" placeholder="e.g., 2.05" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label html="gdp">GDP</label>
-              <input type="number" className="form-control" id="gdp" placeholder="USD Per Capita" />
+              <input type="number" className="form-control" id="gdp" placeholder="e.g., 13000" />
             </div>
             <div className="form-group col-lg-2 col-sm-5">
               <label htmlFor="population">Population</label>
-              <input type="number" className="form-control" id="population" placeholder="Total" />
+              <input type="number" className="form-control" id="population" placeholder="e.g., 1600000" />
             </div>
           </div>
           <div className="form-row">
