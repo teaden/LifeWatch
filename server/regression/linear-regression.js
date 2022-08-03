@@ -1,16 +1,18 @@
 const tf = require('@tensorflow/tfjs');
 const _ = require('lodash');
+const loadCSV = require('./load-csv');
+const fs = require('fs');
 
 class LinearRegression {
 
     constructor(features, labels, options) {
-        this.features = this.processFeatures(features);
-        this.labels = tf.tensor(labels);
+        this.features = features ? this.processFeatures(features) : [];
+        this.labels = labels ? tf.tensor(labels) : [];
         this.mseHistory = [];
 
-        this.options = Object.assign({ learningRate: 0.1, iterations: 1000, batchSize: features.length }, options);
+        this.options = features ? Object.assign({ learningRate: 0.1, iterations: 1000, batchSize: features.length }, options) : {};
 
-        this.weights = tf.zeros([this.features.shape[1], 1]);
+        this.weights = features ? tf.zeros([this.features.shape[1], 1]) : [];
     }
 
     gradientDescent(features, labels) {
@@ -115,5 +117,65 @@ class LinearRegression {
         }
     }
 }
+
+LinearRegression.saveWeights = function () {
+    let { features, labels, testFeatures, testLabels } = loadCSV('./regression/life-expectancy.csv', {
+        shuffle: true,
+        splitTest: 300,
+        dataColumns: ['adultMortality', 'underFiveDeaths', 'infantDeaths', 'HIV', 'measles', 'hepatitisB', 'polio', 'diphtheria', 'BMI', 'alcohol', 'GDP', 'population'],
+        labelColumns: ['lifeExpectancy']
+    });
+
+    const regression = new LinearRegression(features, labels, {
+        learningRate: 0.1,
+        iterations: 100,
+        batchSize: 100,
+    });
+
+    regression.train();
+    const r = regression.test(testFeatures, testLabels);
+
+    console.log('R2 is', r);
+
+    const mean = Array.from(regression.mean.dataSync());
+    const variance = Array.from(regression.variance.dataSync());
+    const weights = Array.from(regression.weights.dataSync());
+
+    const savedRegression = JSON.stringify({ mean, variance, weights });
+
+    fs.writeFile('./model.json', savedRegression, function (err) {
+        if (err) {
+            console.log('There has been an error saving your configuration data.');
+            console.log(err.message);
+            return;
+        }
+        console.log('Configuration saved successfully.');
+    });
+};
+
+LinearRegression.evaluate = function (inputObj) {
+
+    const data = fs.readFileSync('./server/regression/model.json');
+    try {
+        const parsedData = JSON.parse(data);
+        const { mean, variance, weights } = parsedData;
+        const newRegression = new LinearRegression();
+
+        newRegression.weights = tf.tensor(weights.map(entry => [entry]));
+        newRegression.mean = tf.tensor([mean]);
+        newRegression.variance = tf.tensor([variance]);
+
+        const inputArr = [];
+        for (const key in inputObj) {
+            inputArr.push(inputObj[key]);
+        }
+
+        return newRegression.predict([inputArr]).get(0, 0);
+    }
+    catch (err) {
+        console.log('There has been an error parsing your JSON.');
+        console.log(err);
+    }
+};
 
 module.exports = LinearRegression;

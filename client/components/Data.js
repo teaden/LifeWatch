@@ -3,20 +3,19 @@ import { attemptReceiveData } from '../store/data';
 import { connect } from "react-redux";
 
 export class Data extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      results: false,
       adultMortality: 0,
       underFiveMortality: 0,
       infantMortality: 0,
       hiv: 0,
       measles: 0,
       hep: 0,
-      underFiveDeaths: 0,
       polio: 0,
       diphtheria: 0,
       bmi: 0,
+      alcohol: 0,
       gdp: 0,
       population: 0
     };
@@ -26,12 +25,12 @@ export class Data extends React.Component {
 
   handleSubmit = event => {
     this.props.attemptReceiveData(this.state);
-    this.setState({ results: true });
+    this.props.processResults();
   };
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: parseInt(event.target.value) });
-  }
+  handleChange = event => {
+    this.setState({ [event.target.name]: parseFloat(event.target.value) });
+  };
 
   render() {
     return (
@@ -95,7 +94,7 @@ export class Data extends React.Component {
           </div>
           <div className="form-row">
             <div className="form-group col-lg-2 col-sm-5 btn-container">
-              <button type="submit" className="btn btn-success" onClick={this.handleSubmit}>Predict!</button>
+              <button type="submit" className="btn btn-success btn-lg" onClick={this.handleSubmit}>Predict!</button>
             </div>
           </div>
         </div>

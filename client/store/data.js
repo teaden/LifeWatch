@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const RECEIVE_DATA = 'RECEIVE_DATA';
 
-const defaultState = {};
+const defaultState = 0;
 
 const receiveData = data => ({ type: RECEIVE_DATA, data });
 

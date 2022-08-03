@@ -7,14 +7,9 @@ body {
   min-height: 100%;
 }
 
-html {
-  background-color: #212529;
-}
-
 body {
   font-family: sans-serif;
   height: 100vh;
-  background-color: grey;
 }
 
 a {
@@ -88,16 +83,11 @@ div.form-row {
 .main {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: white;
-  border: 20px solid grey;
-  border-radius: 50px;
 }
 
-.list-group {
-  margin-left: 20px;
-  margin-right: 20px;
+.results {
+  display: flex;
+  flex-direction: column;
 }
 
 .list-group-item {
