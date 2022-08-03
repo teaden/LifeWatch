@@ -1,19 +1,17 @@
 import React from 'react';
-import AddData from './AddData';
+import Nav from './Nav';
+import Content from './Content';
+import Data from './Data';
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <h1>LifeWatch</h1>
+      <Nav />
+      <div className="main">
+        <Content />
+        <Data />
       </div>
-      <div>
-        <p>Please enter the forecasted data about your country</p>
-      </div>
-      <div className="form-container">
-        <AddData />
-      </div>
-    </div>
+    </div >
   );
 }
 

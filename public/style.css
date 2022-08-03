@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   min-height: 100%;
@@ -6,6 +10,7 @@ body {
 body {
   font-family: sans-serif;
   height: 100vh;
+  background-color: grey;
 }
 
 a {
@@ -13,11 +18,16 @@ a {
 }
 
 h1 {
-  margin-top: 20px;
+  display: inline-block;
+  color: white;
+  font-family: Tahoma;
 }
 
 p {
-  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace
 }
 
 label {
@@ -35,46 +45,59 @@ form div {
   display: inline-block;
 }
 
+#app,
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 }
 
 div.form-row {
-  width: 100%;
-  display: flex;
   justify-content: center;
 }
 
 .btn-container {
+  margin-top: 40px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
-div#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.nav-container {
+  background-color: #212529;
 }
 
-div.App {
-  height: 60%;
+.nav {
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  border-bottom: 5px solid white
+}
+
+.list-container {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: white;
+  border: 20px solid grey;
+  border-radius: 50px;
+}
+
+.list-group {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.list-group-item {
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
 }
