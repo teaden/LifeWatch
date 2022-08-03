@@ -10,7 +10,7 @@ export const attemptReceiveData = data => {
     return async dispatch => {
         try {
             const res = await axios.post('/api/data', data);
-            dispatch(receiveData(res.data.data));
+            dispatch(receiveData(res.data));
         } catch (error) {
             console.error(error);
         }

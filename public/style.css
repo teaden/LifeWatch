@@ -7,6 +7,10 @@ body {
   min-height: 100%;
 }
 
+html {
+  background-color: #212529;
+}
+
 body {
   font-family: sans-serif;
   height: 100vh;

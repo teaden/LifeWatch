@@ -3,8 +3,8 @@ module.exports = router;
 
 router.post('/', async (req, res, next) => {
     try {
-        // Do regression predictions here and send back
-        res.status(201).json();
+        const data = req.body;
+        res.status(201).json(74);
     } catch (error) {
         next(error);
     }
